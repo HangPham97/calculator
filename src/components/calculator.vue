@@ -1,36 +1,36 @@
 <template>
-<table class="content-table">
-<tr class="display-td">
-<td class="display" colspan="4">{{logList}}</td>
-</tr>
-    <tr>
-        <td class="answer" colspan="4">{{ answer }}</td>
-    </tr>
-    <tr class="button">
-        <td @click="append('7')" class="number">7</td>
-        <td @click="append('8')" class="number">8</td>
-        <td @click="append('9')" class="number">9</td>
-        <td @click="append('/')" class="operator">/</td>
-    </tr>
-    <tr class="button">
-        <td @click="append('4')" class="number">4</td>
-        <td @click="append('5')" class="number">5</td>
-        <td @click="append('6')" class="number">6</td>
-        <td @click="append('*')" class="operator">*</td>
-    </tr>
-    <tr class="button">
-        <td @click="append('1')" class="number">1</td>
-        <td @click="append('2')" class="number">2</td>
-        <td @click="append('3')" class="number">3</td>
-        <td @click="append('-')" class="operator">-</td>
-    </tr>
-    <tr class="button">
-        <td @click="off()" class="off">DEL</td>
-        <td @click="append('0')" class="number">0</td>
-        <td @click="equal" class="number">=</td>
-        <td @click="append('+')" class="operator">+</td>
-    </tr>
-</table>
+    <table class="content-table">
+        <tr class="display-td">
+        <td class="display" colspan="4">{{logList}}</td>
+        </tr>
+        <tr>
+            <td class="answer" colspan="4">{{ answer }}</td>
+        </tr>
+        <tr class="button">
+            <td @click="append('7')" class="number">7</td>
+            <td @click="append('8')" class="number">8</td>
+            <td @click="append('9')" class="number">9</td>
+            <td @click="append('/')" class="operator">/</td>
+        </tr>
+        <tr class="button">
+            <td @click="append('4')" class="number">4</td>
+            <td @click="append('5')" class="number">5</td>
+            <td @click="append('6')" class="number">6</td>
+            <td @click="append('*')" class="operator">*</td>
+        </tr>
+        <tr class="button">
+            <td @click="append('1')" class="number">1</td>
+            <td @click="append('2')" class="number">2</td>
+            <td @click="append('3')" class="number">3</td>
+            <td @click="append('-')" class="operator">-</td>
+        </tr>
+        <tr class="button">
+            <td @click="off()" class="off">DEL</td>
+            <td @click="append('0')" class="number">0</td>
+            <td @click="equal()" class="number">=</td>
+            <td @click="append('+')" class="operator">+</td>
+        </tr>
+    </table>
 </template>
 
 <script>
@@ -38,14 +38,13 @@ export default {
   data () {
     return {
       logList: '',
-      current: '',
       answer: '',
       flag: 0
     }
   },
   methods: {
-    append: function (inputData) {
-      this.inputData = `${this.current}${inputData}`
+    append (inputData) {
+      this.inputData = `${inputData}`
       var inputInt = parseInt(this.inputData)
       if (Number.isInteger(inputInt)) {
         this.logList += this.inputData
@@ -60,13 +59,12 @@ export default {
         this.flag = 1
       }
     },
-    equal: function () {
+    equal () {
     // eslint-disable-next-line no-eval
       this.answer = eval(this.logList)
     },
-    off: function () {
+    off () {
       this.logList = ''
-      this.current = ''
       this.answer = ''
     }
   }
