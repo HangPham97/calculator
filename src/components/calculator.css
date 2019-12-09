@@ -1,0 +1,37 @@
+.content-table{
+    margin: 50px auto;
+    height: 300px;
+    width: 250px;
+}
+.content-table tr{
+    height: 14%;
+}
+.content-table td{
+    border: black 1px;
+    width: 25%;
+    border-radius: 3px;
+}
+.button{
+    text-align: center;
+}
+.operator {
+    background-color: #d9efff;
+    color: #3fa9fc;
+}
+.number , .display, .answer{
+    background-color: #f4faff;
+}
+.display{
+    text-align: left;
+    padding-left: 10px;
+}
+.answer {
+    text-align: right;
+    padding-right: 10px;
+}
+.content-table .display-td{
+    border-bottom: solid black;
+}
+.off{
+    background-color: #ef5d5d;
+}
